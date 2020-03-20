@@ -69,7 +69,7 @@ function updateScore (winner) {
 	alert (score keeper);
 }
 
-function gameWinner () {
+function gameWinner() {
   alert("You won "+scoreKeeper[0]+" rounds, and I won "+scoreKeeper[1]+" rounds.");
 	if (scoreKeeper[0] > scoreKeeper[1]) {
 		alert ("You win!");
