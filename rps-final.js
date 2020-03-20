@@ -27,7 +27,7 @@ function main () {
 function userTurn() {
 	var pChoice = prompt ("choose either r (rock), p (paper) or s (scissors):");
 	turnNumber = letter2Number(pChoice);
-	if (turNumber == - 1) {
+	if (turnNumber == - 1) {
 		alert("Bad guess. Choose either r (Rock), p (Paper), s (scissors):");
 		userTurn();
 	}
