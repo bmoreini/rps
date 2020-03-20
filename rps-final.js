@@ -6,11 +6,9 @@ main ();
 
 function main () {
 	var outOf = parseInt (prompt ("Best out of?"));
-	for (var turn = 0; turn <outOf; turn ++) {
+	for (var turn = 0; turn < outOf; turn ++) {
 		var pChoice = userTurn ();
-		if (pChoice == "q") {
-			= outof the turn;
-		}
+		if (pChoice == "q") turn = outOf;
 		else {
 			var cChoice = cpuTurn ();
 			if (pChoice == cChoice) {
@@ -70,11 +68,7 @@ function updateScore (winner) {
 }
 
 function gameWinner() {
-  alert("You won "+scoreKeeper[0]+" rounds, and I won "+scoreKeeper[1]+" rounds.");
-	if (scoreKeeper[0] > scoreKeeper[1]) {
-		alert ("You win!");
-	}
-	else {
-		alert ("I win!");
-	}
+	alert("You won "+scoreKeeper[0]+" rounds, and I won "+scoreKeeper[1]+" rounds.");
+	if (scoreKeeper[0] > scoreKeeper[1]) alert ("You win!");
+	else alert ("I win!");
 }
