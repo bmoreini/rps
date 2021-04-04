@@ -1,26 +1,33 @@
-// RPS by Wyatt LaBerge
+// RPS
 
-var turnValues = ["q","r","p","s"];
+/* Initialize Globals */
+var turnValues = ["r","p","s","q"];
 var winArray = [["r","p","I"],["r","s","you"],["p","s","I"],["p","r","you"],["s","r","I"],["s","p","you"]];
-var playerScore = 0;
-var cpuScore = 0;
-var choice = 0;
+var playerScore = 0, cpuScore = 0,choice = 0,turns = "",winner = 0,player=0, cpu = 0;
 
-while(choice != "q"){
-  var player = playerTurn();
-  var cpu = cpuTurn();
+while(player != "q"){
+  player = playerTurn();
+  cpu = cpuTurn();
   if(player!=cpu){
-    var turns = player + cpu;
-    var winner = winFinder(turns);
-    if(winner=="I"){
-      cpuScore++;
-      alert(winner+" won!");
+    turns = player.toString() + cpu.toString();
+    if(player == "q") alert("Nice playin' with ya!");
+    else if (turnValues.includes(player)){
+      alert("Turns = "+turns);
+      winner = winFinder(turns);
+      if(winner=="I"){
+        cpuScore++;
+        alert(winner+" won!");
+      }
+      else {
+        playerScore++;
+        alert(winner+" won!");
+      }
+      alert("Score Now:   Me: "+cpuScore+"   You: "+playerScore);
     }
     else {
-      playerScore++;
-      alert(winner+" won!");
+      alert("You hit enter by mistake. You probably wanted to quit.");
+      player = "q";
     }
-    alert("Score Now:   Me: "+cpuScore+"   You: "+playerScore);
   }
   else{
     alert("I picked "+player+" also. Let's try again.");
@@ -33,14 +40,13 @@ function playerTurn(){
 }
 
 function cpuTurn(){
-  var cNum = Math.floor(Math.random()*3)+1;
-  let cpuWord = turnValues[cNum];
-  return cpuWord;
+  var cNum = Math.floor(Math.random()*3);
+  let cpu = turnValues[cNum];
+  return cpu;
 }
 
 function winFinder(turns){
   let x = 0;
-  //turns = "rs";
   while(winArray[x][0] + winArray[x][1]!=turns){
       x++;
   }
